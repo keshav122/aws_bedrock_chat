@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "^4.0.117",
+    "@ai-sdk/react": "^3.0.207",
+    "ai": "^6.0.205",
+    "lucide-react": "^1.18.0",
     "next": "16.2.9",
     "react": "19.2.4",
     "react-dom": "19.2.4"
