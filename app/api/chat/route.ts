@@ -13,10 +13,12 @@ export async function POST(req: NextRequest) {
   };
 
   // Create the Bedrock provider using credentials from environment variables.
+  // It supports either standard AWS credentials or a direct Bearer token.
   const bedrock = createAmazonBedrock({
     region: process.env.AWS_REGION || 'us-east-1',
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || undefined,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || undefined,
+    apiKey: process.env.AWS_BEARER_TOKEN_BEDROCK || undefined,
   });
 
   // Default to Sonnet if no model provided or an invalid one is sent
