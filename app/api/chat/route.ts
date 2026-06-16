@@ -15,12 +15,16 @@ export async function POST(req: NextRequest) {
 
     // Create the Bedrock provider using credentials from environment variables.
     // It supports either standard AWS credentials or a direct Bearer token.
-    const bedrock = createAmazonBedrock({
+    // Build configuration object dynamically so we don't accidentally override the default AWS credential chain with undefined values
+    const config: any = {
       region: process.env.AWS_REGION || 'us-east-1',
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID || undefined,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || undefined,
-      apiKey: process.env.AWS_BEARER_TOKEN_BEDROCK || undefined,
-    });
+    };
+    
+    if (process.env.AWS_ACCESS_KEY_ID) config.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+    if (process.env.AWS_SECRET_ACCESS_KEY) config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+    if (process.env.AWS_BEARER_TOKEN_BEDROCK) config.apiKey = process.env.AWS_BEARER_TOKEN_BEDROCK;
+
+    const bedrock = createAmazonBedrock(config);
 
     // Default to Claude Opus 4.6 if no model provided
     const selectedModelId = modelId || 'anthropic.claude-opus-4-6-v1';
