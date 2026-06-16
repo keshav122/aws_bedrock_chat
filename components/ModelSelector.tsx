@@ -4,16 +4,10 @@
 // based on what is enabled in your Bedrock account.
 export const MODELS = [
   // Claude — Anthropic
-  { id: 'anthropic.claude-opus-4-6-v1', name: 'Claude Opus 4.6' },
-  { id: 'anthropic.claude-sonnet-4-6-v1', name: 'Claude Sonnet 4.6' },
-  { id: 'anthropic.claude-sonnet-4-20250514-v1:0', name: 'Claude Sonnet 4' },
-  { id: 'anthropic.claude-opus-4-20250514-v1:0', name: 'Claude Opus 4' },
-  { id: 'anthropic.claude-sonnet-4-5-20250929-v1:0', name: 'Claude Sonnet 4.5' },
-  { id: 'anthropic.claude-opus-4-5-20251101-v1:0', name: 'Claude Opus 4.5' },
-  { id: 'anthropic.claude-3-7-sonnet-20250219-v1:0', name: 'Claude 3.7 Sonnet' },
-  { id: 'anthropic.claude-3-5-sonnet-20241022-v2:0', name: 'Claude 3.5 Sonnet v2' },
-  { id: 'anthropic.claude-3-5-sonnet-20240620-v1:0', name: 'Claude 3.5 Sonnet' },
-  { id: 'anthropic.claude-3-5-haiku-20241022-v1:0', name: 'Claude 3.5 Haiku' },
+  { id: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0', name: 'Claude 3.7 Sonnet' },
+  { id: 'us.anthropic.claude-3-5-sonnet-20241022-v2:0', name: 'Claude 3.5 Sonnet v2' },
+  { id: 'anthropic.claude-3-5-sonnet-20240620-v1:0', name: 'Claude 3.5 Sonnet v1' },
+  { id: 'us.anthropic.claude-3-5-haiku-20241022-v1:0', name: 'Claude 3.5 Haiku' },
   { id: 'anthropic.claude-3-opus-20240229-v1:0', name: 'Claude 3 Opus' },
   { id: 'anthropic.claude-3-haiku-20240307-v1:0', name: 'Claude 3 Haiku' },
 

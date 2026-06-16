@@ -26,8 +26,8 @@ export async function POST(req: NextRequest) {
 
     const bedrock = createAmazonBedrock(config);
 
-    // Default to Claude Opus 4.6 if no model provided
-    const selectedModelId = modelId || 'anthropic.claude-opus-4-6-v1';
+    // Default to Claude 3.5 Sonnet if no model provided
+    const selectedModelId = modelId || 'anthropic.claude-3-5-sonnet-20240620-v1:0';
 
     // Convert UI messages to model messages
     const modelMessages = await convertToModelMessages(messages);
