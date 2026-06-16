@@ -37,7 +37,15 @@ export async function POST(req: NextRequest) {
 
     // Return a UI message stream response for the DefaultChatTransport
     return createUIMessageStreamResponse({
-      stream: result.toUIMessageStream(),
+      stream: result.toUIMessageStream({
+        error: {
+          getErrorMessage: (err) => {
+            // Unmask the error so you can see exactly why AWS rejected the request
+            if (err instanceof Error) return err.message;
+            return String(err);
+          }
+        }
+      }),
     });
   } catch (error: unknown) {
     // Log the full error server-side for debugging
